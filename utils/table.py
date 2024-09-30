@@ -39,7 +39,7 @@ class Table:
         for i in self.seats: #i is seat
             if i.free:
                 return True
-            
+                
             else :
                 return False
     
