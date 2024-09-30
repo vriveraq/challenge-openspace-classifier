@@ -1,5 +1,5 @@
 import random  # shuffle the names randomly
-from table import Table
+from .table import Table
 
 class Openspace:
     def __init__(self, number_of_tables, table_capacity):
@@ -14,17 +14,18 @@ class Openspace:
                 if table.has_free_spot():
                     table.assign_seat(name)
                     break
-            else:
-                print(f"No seats available for {name}")
+                else:
+                    print(f"No seats available for {name}")
     def display(self):
         """Display the seating arrangement in a readable way."""
         for i, table in enumerate(self.tables):
             print(f"Table {i + 1}:")
-        for m, seat in enumerate(table.seats):
-                if seat.free:
-                    print(f"  Seat {m + 1}: Free")
-                else:
-                    print(f"  Seat {m + 1}: {seat.occupant}")
+
+            for m, seat in enumerate(table.seats):
+                    if seat.free:
+                        print(f"  Seat {m + 1}: Free")
+                    else:
+                        print(f"  Seat {m + 1}: {seat.occupant}")
     def store(self, filename):
         """Store the seat arrangement in exelfile"""
         for i, table in enumerate(self.tables):

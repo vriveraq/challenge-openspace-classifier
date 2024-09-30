@@ -29,8 +29,8 @@ class Table:
         - capacity
         - seats"""
     
-    def __init__(self):
-        self.capacity = 4
+    def __init__(self, table_capacity):
+        self.capacity = table_capacity
         self.seats = []
         for i in range(self.capacity):
             self.seats.append(Seat())
@@ -40,8 +40,8 @@ class Table:
             if i.free:
                 return True
                 
-            else :
-                return False
+           # else :
+            #    return False
     
     def assign_seat(self, name):
         for i in self.seats: # i is seat
@@ -59,9 +59,7 @@ class Table:
         return free_seats
     
 
-table_1 = Table()
-
-
+table_1 = Table(table_capacity=4)
 print(f"If there are free seats? {table_1.has_free_spot()}")
 table_1.assign_seat("Ihor")
 print(f"If there are free seats after assign? {table_1.left_capacity()}")
